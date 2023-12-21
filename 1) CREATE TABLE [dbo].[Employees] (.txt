@@ -1,0 +1,24 @@
+1) CREATE TABLE [dbo].[Employees] (
+    [empno]  INT   IDENTITY(1,1)          NOT NULL,
+    [name]   VARCHAR (50)    NOT NULL,
+    [basic]  DECIMAL (18, 2) NOT NULL,
+    [deptno] SMALLINT        NOT NULL,
+    PRIMARY KEY CLUSTERED ([empno] ASC),
+    CONSTRAINT [FK_Employees_ToTable] FOREIGN KEY ([deptno]) REFERENCES [dbo].[Departments] ([deptno])
+);
+
+2)CREATE TABLE [dbo].[Departments] (
+    [name]   VARCHAR (50) NOT NULL,
+    [deptno] SMALLINT     IDENTITY (1, 1) NOT NULL,
+    CONSTRAINT [PK_Departments] PRIMARY KEY CLUSTERED ([deptno] ASC)
+);
+
+
+
+
+
+
+
+
+ Scaffold-DbContext ++++++ "Data Source=(localdb)\MsSqlLocalDb;Initial Catalog=EmployeeDatabase;Integrated Security=true"++++++++ Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
